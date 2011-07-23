@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://fuzzypeach/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://fuzzypeach/locale/overlay.dtd">
+<overlay id="fuzzypeach-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="overlay.js"/>
+  <script src="ff-overlay.js"/>
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="fuzzypeach-strings" src="chrome://fuzzypeach/locale/overlay.properties"/>
+  </stringbundleset>
+
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="fuzzypeach-hello" label="&fuzzypeach.label;"
+              oncommand="fuzzypeach.onMenuItemCommand(event);"/>
+  </menupopup>
+
+  <toolbarpalette id="BrowserToolbarPalette">
+      <toolbaritem id="fuzzypeach-rating-buttons" tooltiptext="FuzzyPeach Ratings">
+
+        <toolbarbutton id="fuzzypeach-home" class="toolbarbutton-1 chromeclass-toolbar-additional"
+          label="&fuzzypeachToolbarButton.label;" tooltiptext="&fuzzypeachToolbarButton.tooltip;"
+          onclick="window.open('chrome://fuzzypeach/content/ui/index.html', '_newtab')"/>
+
+        <toolbarbutton id="fuzzypeach-thumbs-down" class="toolbarbutton-1 chromeclass-toolbar-additional"
+          label="&fuzzypeachToolbarButton.label;" tooltiptext="&fuzzypeachToolbarButton.tooltip;"
+          onclick="toolbarButtonThumbsDown()"/>
+
+        <toolbarbutton id="fuzzypeach-thumbs-up" class="toolbarbutton-1 chromeclass-toolbar-additional"
+          label="&fuzzypeachToolbarButton.label;" tooltiptext="&fuzzypeachToolbarButton.tooltip;"
+          onclick="toolbarButtonThumbsUp();"/>
+
+        </toolbaritem>
+  </toolbarpalette>
+
+</overlay>

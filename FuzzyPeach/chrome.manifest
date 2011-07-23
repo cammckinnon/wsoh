@@ -1,0 +1,8 @@
+content   fuzzypeach                 chrome/content/
+skin      fuzzypeach   classic/1.0   chrome/skin/
+locale    fuzzypeach   en-US         chrome/locale/en-US/
+
+
+overlay   chrome://browser/content/browser.xul   chrome://fuzzypeach/content/ff-overlay.xul
+style chrome://global/content/customizeToolbar.xul chrome://fuzzypeach/skin/overlay.css
+style chrome://global/content/customizeToolbar.xul chrome://fuzzypeach/skin/toolbar.css

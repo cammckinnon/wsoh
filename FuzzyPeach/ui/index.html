@@ -1,0 +1,408 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<title>FuzzyPeach - Overview</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	<!-- CSS Styles -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/colors.css">
+	<link rel="stylesheet" href="css/jquery.tipsy.css">
+	<link rel="stylesheet" href="css/jquery.wysiwyg.css">
+	<link rel="stylesheet" href="css/jquery.datatables.css">
+	<link rel="stylesheet" href="css/jquery.nyromodal.css">
+	<link rel="stylesheet" href="css/jquery.datepicker.css">
+	<link rel="stylesheet" href="css/jquery.fileinput.css">
+	<link rel="stylesheet" href="css/jquery.fullcalendar.css">
+	<link rel="stylesheet" href="css/jquery.visualize.css">
+
+	<!-- Google WebFonts -->
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+
+	<script src="js/libs/modernizr-1.7.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js'></script>
+	<script>
+		google.load('visualization', '1', {'packages':['corechart']});
+		function animateProgress(){
+			$('.progress-bar').each(function() {
+				var progress = $(this).children().width();
+				$(this).children().css({ 'width':0 }).animate({width:progress},3000);
+			});
+		}
+	</script>
+
+</head>
+
+<!-- Add class .fixed for fixed layout. You would need also edit CSS file for width -->
+<body>
+
+	<!-- Fixed Layout Wrapper -->
+	<div class="fixed-wraper">
+
+	<!-- Aside Block -->
+	<section role="navigation" style="position:fixed;top:0">
+		<!-- Header with logo and headline -->
+		<header>
+			<h1 style='font-size:25px;font-weight:bold;font-family:Arial;color:#555555'>FuzzyPeach App</h1>
+			<h1>A productivity tool that's fun for the whole family!</h1>
+		</header>
+		
+		<!-- /User Info -->
+		
+		<!-- Main Navigation -->
+		<nav id="main-nav">
+			<ul>
+				<li class="current"><a href="index.html" title="" class="dashboard no-submenu">Overview</a></li> <!-- Use class .no-submenu to open link instead of a sub menu-->
+				<!-- Use class .current to open submenu on page load -->
+				<li class="" >
+					<a href="details.html" class="articles no-submenu" title="" >Details</a>
+				</li>
+				<li>
+					<a href="block.html" title="" class="settings no-submenu">Block Sites</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- /Main Navigation -->
+		
+		<!-- Sidebar -->
+		<section class="sidebar nested"> <!-- Use class .nested for diferent style -->
+			<h2>A Productivity App from the Future</h2>
+			<p>Click <b>Overview</b> or <b>Details</b> to see your stats.<br><br>Then <b>Block Sites</b> to prevent future time-wasting.</p>
+		</section>
+		<!-- /Sidebar -->
+		
+		<!-- Sidebar -->
+		<section class="sidebar">
+			<h2>Did you know?</h2>
+			<p>FuzzyPeach was created by two interns from Canada for the <a href="http://mozillalabs.com/blog/2011/06/mozilla-wsoh-world-series-of-hack/">WSOH</a> competition (they won of course).</p>
+			<p class="separator">FuzzyPeach is open-source! You can see the source code and contribute on <a href="">github</a>.</p>
+
+		</section>
+		<!-- /Sidebar -->
+	
+	</section>
+	<!-- /Aside Block -->
+	
+	<!-- Main Content -->
+	<section role="main">
+	
+		<!-- Widget Container -->
+		<section id="widgets-container">
+		
+			<!-- Widget Box -->
+			
+			<!-- Widget Box -->
+
+			<!-- Widget Box -->
+			
+
+		</section>
+
+		<script>
+			
+			function init_widget_productivity_week(productivity){
+				if (productivity<0){
+					$('#widgets-container').html($('#widgets-container').html()+"<div class='widget decrease' id='new-orders'><span>decrease</span><p><strong>-"+Math.abs(productivity)+"<sup>%</sup></strong><font style='font-size:10px;margin-left:-6px'>less productive (past week)</font></p></div>");
+				}else{
+					$('#widgets-container').html($('#widgets-container').html()+"<div class='widget increase' id='new-visitors'><span>increase</span><p><strong>+"+Math.abs(productivity)+"<sup>%</sup></strong><font style='font-size:10px;margin-left:-7px'>more productive (past week)</font></p></div>");
+				}
+			}
+
+			init_widget_productivity_week(-90);
+
+			function init_widget_productivity_day(productivity){
+				if (productivity<0){
+					$('#widgets-container').html($('#widgets-container').html()+"<div class='widget decrease' id='new-orders'><span>decrease</span><p><strong>-"+Math.abs(productivity)+"<sup>%</sup></strong><font style='font-size:10px;margin-left:-6px'>less productive (past day)</font></p></div>");
+				}else{
+					$('#widgets-container').html($('#widgets-container').html()+"<div class='widget increase' id='new-visitors'><span>increase</span><p><strong>+"+Math.abs(productivity)+"<sup>%</sup></strong><font style='font-size:10px;margin-left:-7px'>more productive (past day)</font></p></div>");
+				}
+			}
+
+			init_widget_productivity_day(90);
+
+			function init_widget_badsite(sitename){
+				$('#widgets-container').html($('#widgets-container').html()+'<div class="widget decrease" id="new-tasks"><p><strong style="font-size:14px">'+sitename+'</strong>This is your worst time-waster.</p></div>');
+				
+			}
+
+			init_widget_badsite('Reddit.com');
+			
+			function init_widget_goodsite(sitename){
+				$('#widgets-container').html($('#widgets-container').html()+'<div class="widget increase" id="new-tasks-green"><p><strong style="font-size:14px">'+sitename+'</strong><g style="font-size:11px">This is your most productive site.</g></p></div>');
+				
+			}
+
+			init_widget_goodsite('sugarcrm.com');
+		</script>
+		<!-- /Widget Container -->
+		
+		
+		<article class="full-block clearfix">
+		
+			<!-- Article Container for safe floating -->
+			<div class="article-container;">
+			
+				<!-- Article Header -->
+				<header style='padding:1px;margin-bottom:0;z-index:1;position:relative'>
+					<h2>Productivity over time</h2>
+				</header>
+				<!-- /Article Header -->
+				
+				<!-- Article Content -->
+				<section id='areagraph' style='position:relative;top:-5px;left:-25px;width:100%;overflow-y: hidden;'>
+				</section>
+
+				<script>
+					function init_areagraph(dates, timeWasting, neutral, productive) {
+					  // Some raw data (not necessarily accurate)
+					  var countries =
+					    ['Productive sites', 'Neutral sites', 'Time-wasting sites'];
+					  //var months = ['Dec 2011', 'Aug 2011', 'Feb 2011', 'Mar 2011', 'July 2011','July 2011',];
+					  var months = dates;
+
+					  /*
+					  var productionByCountry = [[165, 135, 157, 139, 136,552],
+					                             [165, 135, 157, 139, 136,123],
+					                             [165, 135, 157, 139, 136,333,]];
+					  */
+					  
+					  var productionByCountry = [productive, neutral, timeWasting];					                             
+					  // Create and populate the data table.
+					  var data = new google.visualization.DataTable();
+					  data.addColumn('string', 'Month');
+					  for (var i = 0; i < countries.length; ++i) {
+					    data.addColumn('number', countries[i]);
+					  }
+					  data.addRows(months.length);
+					  for (var i = 0; i < months.length; ++i) {
+					    data.setCell(i, 0, months[i]);
+					  }
+					  for (var i = 0; i < countries.length; ++i) {
+					    var country = productionByCountry[i];
+					    for (var month = 0; month < months.length; ++month) {
+					      data.setCell(month, i + 1, country[month]);
+					    }
+					  }
+					  // Create and draw the visualization.
+					  var ac = new google.visualization.AreaChart(document.getElementById('areagraph'));
+					  ac.draw(data, {
+					    isStacked: true,
+
+					    width: document.getElementById('areagraph').offsetWidth,
+					    height: 250,
+					    
+					    colors:['blue','grey','red'],
+					    vAxis: {title: "Avg Minutes per day"},
+    					hAxis: {title: ""},
+    					legendTextStyle:{fontSize: 12}
+
+					  });
+					}
+
+					init_areagraph(['Dec 2011', 'Aug 2011', 'Feb 2011', 'Mar 2011', 'July 2011','July 2011'],
+								   [165, 135, 157, 139, 136,552],
+								   [165, 135, 157, 139, 136,552],
+								   [132, 515, 4, 1000, 4,9]);
+									
+				</script>
+				<!-- /Article Content -->
+			
+			</div>
+			<!-- /Article Container -->
+			
+		<article class="full-block clearfix">
+		
+		<div class="clearfix"></div> <!-- We're really sorry for this, but because of IE7 we still need separated div with clearfix -->
+		
+		<!-- Half Content Block -->
+		<article class="half-block">
+		
+			<!-- Article Container for safe floating -->
+			<div class="article-container" style='width:500px;margin-right:20px;'>
+			
+				<!-- Article Header -->
+				<header>
+					<h2>Browsing habits this week</h2>
+				</header>
+				<!-- /Article Header -->
+				
+				<!-- Article Content -->
+				<section>
+					<div style='float:left;width:800px;margin-left:-8px'>
+						<div style='position:relative;z-index:10;left:140px;margin-bottom:20px'>
+							<div style='position:relative;font-size:15px' id='tt1'><b>This Week</b></div>
+							<div style='position:relative;left:275px;top:-20px;font-size:15px' id='tt2'><b>Past 24 hours</b></div>
+						</div>
+
+						<div width='width:600px;float:left;position:relative;'onMouseOver='pc1()'>
+							<div style='float:left;margin-left:-20px;margin-top:-60px;width:400px;' id='piechart1'></div>
+						</div>
+						<div width='width:400px;float:left;clear:none;position:relative;' onMouseOver='pc2()'>
+							<div style='float:left;margin-left:-160px;margin-top:-60px;width:400px' id='piechart2'></div>
+						</div>
+
+					</div>
+					<script>
+					function pc1(){
+						document.getElementById('piechart1').style.zIndex=5;
+						document.getElementById('piechart2').style.zIndex=0;
+					}
+					pc1();
+					function pc2(){
+						document.getElementById('piechart2').style.zIndex=5;
+						document.getElementById('piechart1').style.zIndex=0;
+					}
+					function init_pie_7days(timeWasting, neutral, productive) {
+				        var data = new google.visualization.DataTable();
+				        data.addColumn('string', 'Task');
+				        data.addColumn('number', 'Hours per Day');
+				        data.addRows(4);
+				        data.setValue(0, 0, 'Working');
+				        data.setValue(0, 1, productive);
+				        data.setValue(1, 0, 'Neutral');
+				        data.setValue(1, 1, neutral);
+				        data.setValue(2, 0, 'Wasting Time');
+				        data.setValue(2, 1, timeWasting);
+
+				        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+				        chart.draw(data, {width: 300, height: 300,
+				        				  pieSliceText: 'percentage',
+				        				  fontSize:12,
+				        				  colors:['#2277ff','#AAAAAA','red'],
+				        				  legend:'none'});
+				      }
+
+				      init_pie_7days(123,412,2);
+				      function init_pie_today(timeWasting, neutral, productive) {
+				        var data = new google.visualization.DataTable();
+				        data.addColumn('string', 'Task');
+				        data.addColumn('number', 'Hours per Day');
+				        data.addRows(4);
+				        data.setValue(0, 0, 'Working');
+				        data.setValue(0, 1, productive);
+				        data.setValue(1, 0, 'Neutral');
+				        data.setValue(1, 1, neutral);
+				        data.setValue(2, 0, 'Wasting Time');
+				        data.setValue(2, 1, timeWasting);
+
+				        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+				        chart.draw(data, {width: 300, height: 300,
+				        				  pieSliceText: 'percentage',
+				        				  fontSize:12,
+				        				  colors:['#2277ff','#AAAAAA','red'],
+				        				  legend:'none'});
+				      }
+				      init_pie_today(555,5000,6123);
+					</script>
+
+					
+				</section>
+				<!-- /Article Content -->
+			
+			</div>
+			<!-- /Article Container -->
+			
+		</article>
+		<!-- /Half Content Block -->
+		
+		<!-- Half Content Block -->
+		<article class="half-block clearrm">
+			
+			<!-- Article Container for safe floating -->
+			<div class="article-container">
+			
+				<!-- Article Header -->
+				<header>
+					<h2>Top sites this week</h2>
+				</header>
+				<!-- /Article Header -->
+				
+				<!-- Article Content -->
+				<section>
+					<p id='topsites'>
+						
+					</p>
+
+					<script>
+						 
+
+						function init_topsites(sitenames, siteminutes, sitetypes){
+								var max =0;
+								for (i=0;i<siteminutes.length;i++){
+									if (siteminutes[i]>max)
+										max=siteminutes[i];
+								}
+
+								console.log(max);
+
+								for (i=0;i<sitenames.length;i++){
+									if (sitetypes[i]=='neutral')
+										color='grey';
+									else if (sitetypes[i]=='productive')
+										color='red';
+									else
+										color='blue';
+
+									width = (siteminutes[i]/max)*500;
+									fs = '';
+									if (50+16*sitenames[i].length>width)
+										fs = 'font-size:10px';
+
+									$('#topsites').html($('#topsites').html()+"<div style='float:left;margin-top:15px;color:black;font-weight:bold;font-size:13px;width:20px'>"+(i+1)+". </div><div class='progress-bar "+color+"' style='float:left;width:"+width+"px'><div style='width:100%;'><span style='display:block;overflow:hidden;width:"+width+"px;text-align:center;"+fs+"'>"+sitenames[i]+" ("+siteminutes[i]+" mins)</span></div></div><div style='clear:both'></div>");
+								}
+								animateProgress();
+						}
+						init_topsites(['cool.com','cooler.com','evencooler.com'],[123,412,312]);
+					</script>
+
+					
+				</section>
+				<!-- /Article Content -->
+			
+			</div>
+			<!-- /Article Container -->
+			
+		</article>
+		<!-- /Half Content Block -->
+		
+	
+	</section>
+	<!-- /Main Content -->
+	
+	</div>
+	<!-- /Fixed Layout Wrapper -->
+
+	<!-- JS Libs at the end for faster loading -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery/jquery-1.5.1.min.js"%3E%3C/script%3E'))</script>
+	<script src="js/libs/selectivizr.js"></script>
+	<script src="js/jquery/jquery.nyromodal.js"></script>
+	<script src="js/jquery/jquery.tipsy.js"></script>
+	<script src="js/jquery/jquery.wysiwyg.js"></script>
+	<script src="js/jquery/jquery.datatables.js"></script>
+	<script src="js/jquery/jquery.datepicker.js"></script>
+	<script src="js/jquery/jquery.fileinput.js"></script>
+	<script src="js/jquery/jquery.fullcalendar.min.js"></script>
+	<script src="js/jquery/excanvas.js"></script>
+	<script src="js/jquery/jquery.visualize.js"></script>
+	<script src="js/jquery/jquery.visualize.tooltip.js"></script>
+	<script src="js/script.js"></script>
+	
+	<script>
+		var _gaq=[['_setAccount','UA-XXXXXXX'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</body>
+</html>

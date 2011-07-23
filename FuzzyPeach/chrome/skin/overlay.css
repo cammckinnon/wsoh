@@ -1,0 +1,59 @@
+/* This is just an example.  You shouldn't do this. */
+#fuzzypeach-hello
+{
+  color: red ! important;
+}
+
+#fuzzypeach-home
+{
+  list-style-image: url("chrome://fuzzypeach/skin/toolbar-button.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+#fuzzypeach-home:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+[iconsize="small"] #fuzzypeach-home
+{
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+[iconsize="small"] #fuzzypeach-home:hover
+{
+  -moz-image-region: rect(24px 40px 40px 24px);
+}
+
+#fuzzypeach-thumbs-up
+{
+  list-style-image: url("chrome://fuzzypeach/skin/thumbs-up-button.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+#fuzzypeach-thumbs-up:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+[iconsize="small"] #fuzzypeach-thumbs-up
+{
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+[iconsize="small"] #fuzzypeach-thumbs-up:hover
+{
+  -moz-image-region: rect(24px 40px 40px 24px);
+}
+
+#fuzzypeach-thumbs-down
+{
+  list-style-image: url("chrome://fuzzypeach/skin/thumbs-down-button.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+#fuzzypeach-thumbs-down:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+[iconsize="small"] #fuzzypeach-thumbs-down
+{
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+[iconsize="small"] #fuzzypeach-thumbs-down:hover
+{
+  -moz-image-region: rect(24px 40px 40px 24px);
+}
